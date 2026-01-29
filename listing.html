@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🛍️ Marketplace</h1>
+        <a href="index.html" class="back-btn">← Back to Listings</a>
+    </header>
+
+    <main class="container">
+        <div class="listing-detail">
+            <div class="detail-image">
+                <img id="productImage" src="" alt="Product Image">
+            </div>
+            <div class="detail-info">
+                <h2 id="productTitle">Loading...</h2>
+                <p class="price large" id="productPrice">$0.00</p>
+                <p id="productDescription">Loading description...</p>
+                
+                <div class="order-section">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" min="1" value="1">
+                    
+                    <button class="order-btn" onclick="placeOrder()">Click to Unlock</button>
+                </div>
+                
+                <div class="seller-info">
+                    <h3>Seller Information</h3>
+                    <p>Contact: seller@marketplace.com</p>
+                    <p>Rating: ⭐⭐⭐⭐⭐ (5.0)</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
