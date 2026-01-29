@@ -5,7 +5,7 @@ const listings = {
         price: "$29.99",
         oldPrice: "$5,999.99",
         description: "Female, well cared for. This item has been carefully maintained and is ready for a new home. Perfect for everyday use and built to last.",
-        image: "https://images.unsplash.com/photo-1658354562106-695ea97df8a1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGlydHklMjBmZWV0fGVufDB8fDB8fHww"
+        image: "./images/jackfeet.jpg"
     },
     2: {
         title: "UltraFresh Virgin Toes™ Pro",
@@ -77,15 +77,104 @@ function startPopupCountdown() {
     }, 1000);
 }
 
-// Show popup after delay
+// Show popup after delay (only once)
+let popupShown = false;
 function showPopup() {
+    if (popupShown) return;
     setTimeout(() => {
         const modal = document.getElementById('popup-modal');
         if (modal) {
             modal.style.display = 'flex';
+            popupShown = true;
             startPopupCountdown();
         }
     }, 3000);
+}
+
+// Fake notification messages
+const notifications = [
+    "Sarah from New York just purchased Supreme Beach Walker™!",
+    "Mike from California bought 3 items!",
+    "Jessica from Texas just saved $5,000!",
+    "127 people are viewing this right now!",
+    "Chris from Florida just unlocked MEGA DISCOUNT!",
+    "Emma from Illinois purchased Turbo Toenail Thunder™!",
+    "Someone from London just made a purchase!",
+    "David from Seattle saved 99% on his order!",
+    "Only 12 items left at this price!",
+    "Anonymous buyer just spent $500!"
+];
+
+// Show random notifications
+function showNotification() {
+    const container = document.getElementById('notification-container');
+    if (!container) return;
+    
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = notifications[Math.floor(Math.random() * notifications.length)];
+    
+    container.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 5000);
+}
+
+// Show notifications periodically
+function startNotifications() {
+    setInterval(() => {
+        showNotification();
+    }, Math.random() * 5000 + 3000); // Random between 3-8 seconds
+}
+
+// Show spinning wheel popup
+function showSpinWheel() {
+    setTimeout(() => {
+        const spinPopup = document.getElementById('spin-wheel-popup');
+        if (spinPopup) {
+            spinPopup.style.display = 'flex';
+        }
+    }, 10000); // Show after 10 seconds
+}
+
+// Close spinning wheel
+function closeSpinWheel() {
+    const spinPopup = document.getElementById('spin-wheel-popup');
+    if (spinPopup) {
+        spinPopup.style.display = 'none';
+    }
+}
+
+// Spin the wheel
+function spinWheel() {
+    const wheel = document.querySelector('.wheel');
+    wheel.classList.add('spinning');
+    
+    setTimeout(() => {
+        wheel.classList.remove('spinning');
+        const prizes = ['99% OFF!', '$500 COUPON!', 'FREE SHIPPING!', 'BUY 1 GET 5!', '95% OFF!', 'MYSTERY BOX!'];
+        const prize = prizes[Math.floor(Math.random() * prizes.length)];
+        alert(`🎉 CONGRATULATIONS! 🎉\n\nYou won: ${prize}`);
+        closeSpinWheel();
+    }, 3000);
+}
+
+// Decrease stock counter
+function decreaseStock() {
+    const stockCount = document.getElementById('stock-count');
+    if (stockCount) {
+        setInterval(() => {
+            let count = parseInt(stockCount.textContent);
+            if (count > 5) {
+                count -= Math.floor(Math.random() * 3) + 1;
+                stockCount.textContent = count;
+            } else {
+                count = 47; // Reset
+                stockCount.textContent = count;
+            }
+        }, 8000);
+    }
 }
 
 // Close popup
@@ -110,6 +199,9 @@ function unlockListing(id) {
 window.addEventListener('DOMContentLoaded', function() {
     startCountdown();
     showPopup();
+    startNotifications();
+    showSpinWheel();
+    decreaseStock();
     
     // Check if we're on the listing detail page
     const urlParams = new URLSearchParams(window.location.search);

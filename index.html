@@ -20,9 +20,9 @@
             <div class="listing-card" onclick="viewListing(1)">
                 <div class="sale-badge">🔥 95% OFF! 🔥</div>
                 <div class="limited-badge">⚡ ONLY 2 LEFT!</div>
-                <img src="https://images.unsplash.com/photo-1723376336168-15a9b432c642?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGRpcnR5JTIwZmVldHxlbnwwfHwwfHx8MA%3D%3D" alt="Product 1">
+                <img src="./images/jackfeet.jpg" alt="Product 1">
                 <div class="listing-info">
-                    <h3>Supreme Beach Walker™ Edition</h3>
+                    <h3>Jacks Feet</h3>
                     <p class="price"><span class="old-price">$5,999.99</span> $29.99</p>
                     <p class="description">Female, well cared for</p>
                     <p class="deal-tag">🎁 BUY 1 GET 2 FREE! 🎁</p>
@@ -101,6 +101,27 @@
     <div class="floating-banner banner-2">💥 SPIN THE WHEEL! WIN UP TO $999! 💥</div>
     <div class="floating-banner banner-3">⚡ REFER A FRIEND, GET $50! ⚡</div>
 
+    <!-- Fake Live Notifications -->
+    <div id="notification-container"></div>
+
+    <!-- Spinning Discount Wheel -->
+    <div id="spin-wheel-popup" class="spin-popup">
+        <div class="spin-content">
+            <h2>🎡 SPIN TO WIN! 🎡</h2>
+            <div class="wheel">
+                <div class="wheel-inner">🎯</div>
+            </div>
+            <p class="spin-text">Click to Spin for Extra Discount!</p>
+            <button class="spin-btn" onclick="spinWheel()">SPIN NOW! 🎰</button>
+            <button class="close-spin" onclick="closeSpinWheel()">Maybe Later</button>
+        </div>
+    </div>
+
+    <!-- Fake Stock Counter -->
+    <div class="stock-alert">
+        ⚠️ ONLY <span id="stock-count">47</span> ITEMS LEFT IN STOCK! ⚠️
+    </div>
+
     <!-- Pop-up Modal -->
     <div id="popup-modal" class="popup-modal">
         <div class="popup-content">
@@ -109,7 +130,6 @@
             <h3>🔥 99.9% OFF EVERYTHING! 🔥</h3>
             <p class="popup-timer">⏰ OFFER EXPIRES IN: <span id="popup-countdown">05:00</span> ⏰</p>
             <button class="popup-btn" onclick="closePopup()">CLAIM NOW! 🎁</button>
-            <p class="popup-fine-print">*Just kidding, but seriously, great deals inside!</p>
         </div>
     </div>
 

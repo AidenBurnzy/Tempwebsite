@@ -470,6 +470,185 @@ header h1 {
     margin-top: 10px;
 }
 
+/* Fake Live Notifications */
+#notification-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 3000;
+    max-width: 350px;
+}
+
+.notification {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: slideInLeft 0.5s ease-out, fadeOut 0.5s ease-out 4.5s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification::before {
+    content: "✅";
+    font-size: 1.5em;
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-400px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Spinning Wheel Popup */
+.spin-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2500;
+}
+
+.spin-content {
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 5px solid #ff0000;
+    animation: popIn 0.5s ease-out;
+}
+
+.spin-content h2 {
+    font-size: 2.5em;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.wheel {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #ff0000 0deg 45deg,
+        #ffd700 45deg 90deg,
+        #00ff00 90deg 135deg,
+        #00ffff 135deg 180deg,
+        #ff00ff 180deg 225deg,
+        #ffaa00 225deg 270deg,
+        #ff0066 270deg 315deg,
+        #6600ff 315deg 360deg
+    );
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid #fff;
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.8);
+    position: relative;
+}
+
+.wheel-inner {
+    font-size: 3em;
+    background: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.wheel.spinning {
+    animation: spin 3s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(1800deg); }
+}
+
+.spin-text {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #fff;
+    margin: 20px 0;
+}
+
+.spin-btn {
+    background: linear-gradient(135deg, #00ff00, #00aa00);
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px;
+    animation: pulse 1.5s ease-in-out infinite;
+    box-shadow: 0 5px 20px rgba(0, 255, 0, 0.5);
+}
+
+.spin-btn:hover {
+    transform: scale(1.1);
+}
+
+.close-spin {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 10px 30px;
+    font-size: 1em;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.close-spin:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Stock Alert */
+.stock-alert {
+    position: fixed;
+    top: 50%;
+    right: -350px;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #ff0000, #ff6600);
+    color: white;
+    padding: 20px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 10px 0 0 10px;
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.6);
+    animation: slideStock 5s ease-in-out infinite;
+    z-index: 1500;
+}
+
+@keyframes slideStock {
+    0%, 100% { right: -350px; }
+    20%, 80% { right: 0; }
+}
+
+#stock-count {
+    font-size: 1.5em;
+    color: #ffd700;
+    animation: pulse 1s ease-in-out infinite;
+}
+
 @media (max-width: 768px) {
     .listings-grid {
         grid-template-columns: 1fr;
