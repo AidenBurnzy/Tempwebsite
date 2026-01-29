@@ -8,37 +8,39 @@
 </head>
 <body>
     <header>
-        <h1>🛍️ Feetplace</h1>
-        <p>Browse available Feet</p>
+        <div class="flash-banner">🔥 FLASH SALE! 🔥 EVERYTHING MUST GO! 🔥 LIMITED TIME ONLY! 🔥</div>
+        <h1>🛍️ FEETPLACE 🛍️</h1>
+        <p class="deal-text">⚡ BUY 2 GET 3 FREE! ⚡ 99% OFF! ⚡ FREE SHIPPING! ⚡</p>
+        <div class="timer">⏰ SALE ENDS IN: <span id="countdown">23:59:59</span> ⏰</div>
     </header>
 
     <main class="container">
         <div class="listings-grid">
             <!-- Listing 1 -->
             <div class="listing-card" onclick="viewListing(1)">
-                <img src="https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=400&h=300&fit=crop" alt="Product 1">
+                <img src="https://plus.unsplash.com/premium_photo-1679346081584-52e7ff88d494?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmVldHxlbnwwfHwwfHx8MA%3D%3D" alt="Product 1">
                 <div class="listing-info">
-                    <h3>Premium Item #1</h3>
+                    <h3>Premium Feet</h3>
                     <p class="price">$29.99</p>
-                    <p class="description">High quality product in excellent condition</p>
+                    <p class="description">Female, well cared for</p>
                 </div>
             </div>
 
             <!-- Listing 2 -->
             <div class="listing-card" onclick="viewListing(2)">
-                <img src="https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=400&h=300&fit=crop" alt="Product 2">
+                <img src="https://images.unsplash.com/photo-1595051572626-aecfdafb53f2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmVldHxlbnwwfHwwfHx8MA%3D%3D" alt="Product 2">
                 <div class="listing-info">
-                    <h3>Deluxe Item #2</h3>
+                    <h3>Deluxe Feet</h3>
                     <p class="price">$45.00</p>
-                    <p class="description">Brand new, never used</p>
+                    <p class="description">Brand new, never walked on</p>
                 </div>
             </div>
 
             <!-- Listing 3 -->
             <div class="listing-card" onclick="viewListing(3)">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27f2?w=400&h=300&fit=crop" alt="Product 3">
+                <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZlZXR8ZW58MHx8MHx8fDA%3D" alt="Product 3">
                 <div class="listing-info">
-                    <h3>Special Item #3</h3>
+                    <h3>Special Feet </h3>
                     <p class="price">$19.99</p>
                     <p class="description">Great deal, limited time offer</p>
                 </div>
@@ -46,35 +48,61 @@
 
             <!-- Listing 4 -->
             <div class="listing-card" onclick="viewListing(4)">
-                <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2400&h=300&fit=crop" alt="Product 4">
+                <div class="sale-badge">🎉 92% OFF! 🎉</div>
+                <div class="limited-badge">💎 VIP ONLY!</div>
+                <img src="https://plus.unsplash.com/premium_photo-1670444332413-62286ffc3bbd?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGZlZXR8ZW58MHx8MHx8fDA%3D" alt="Product 4">
                 <div class="listing-info">
                     <h3>Exclusive Item #4</h3>
-                    <p class="price">$75.50</p>
+                    <p class="price"><span class="old-price">$943.75</span> $75.50</p>
                     <p class="description">Premium quality, highly sought after</p>
+                    <p class="deal-tag">🎊 + FREE GIFT WORTH $200! 🎊</p>
                 </div>
             </div>
 
             <!-- Listing 5 -->
             <div class="listing-card" onclick="viewListing(5)">
-                <img src="https://images.unsplash.com/photo-1449505278894-297fdb3edbc1?w=400&h=300&fit=crop" alt="Product 5">
+                <div class="sale-badge">🌈 98% OFF! 🌈</div>
+                <div class="limited-badge">🎯 MEGA DEAL!</div>
+                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=300&fit=crop" alt="Product 5">
                 <div class="listing-info">
                     <h3>Luxury Item #5</h3>
-                    <p class="price">$120.00</p>
+                    <p class="price"><span class="old-price">$6,000.00</span> $120.00</p>
                     <p class="description">Top of the line, perfect condition</p>
+                    <p class="deal-tag">🏆 BUY 1 GET 10 FREE! 🏆</p>
                 </div>
             </div>
 
             <!-- Listing 6 -->
             <div class="listing-card" onclick="viewListing(6)">
-                <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&h=300&fit=crop" alt="Product 6">
+                <div class="sale-badge">💰 94% OFF! 💰</div>
+                <div class="limited-badge">⭐ HOT SELLER!</div>
+                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop" alt="Product 6">
                 <div class="listing-info">
                     <h3>Essential Item #6</h3>
-                    <p class="price">$35.99</p>
+                    <p class="price"><span class="old-price">$599.83</span> $35.99</p>
                     <p class="description">Must-have item, great value</p>
+                    <p class="deal-tag">🎁 FREE SHIPPING WORLDWIDE! 🎁</p>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Floating Banners -->
+    <div class="floating-banner banner-1">🚨 NEW CUSTOMER? GET 90% OFF YOUR FIRST ORDER! 🚨</div>
+    <div class="floating-banner banner-2">💥 SPIN THE WHEEL! WIN UP TO $999! 💥</div>
+    <div class="floating-banner banner-3">⚡ REFER A FRIEND, GET $50! ⚡</div>
+
+    <!-- Pop-up Modal -->
+    <div id="popup-modal" class="popup-modal">
+        <div class="popup-content">
+            <h2>🎊 CONGRATULATIONS! 🎊</h2>
+            <p>You've been selected for our EXCLUSIVE DEAL!</p>
+            <h3>🔥 99.9% OFF EVERYTHING! 🔥</h3>
+            <p class="popup-timer">⏰ OFFER EXPIRES IN: <span id="popup-countdown">05:00</span> ⏰</p>
+            <button class="popup-btn" onclick="closePopup()">CLAIM NOW! 🎁</button>
+            <p class="popup-fine-print">*Just kidding, but seriously, great deals inside!</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

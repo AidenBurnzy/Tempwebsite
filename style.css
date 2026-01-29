@@ -6,9 +6,35 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #ff6b6b 100%);
     min-height: 100vh;
     padding: 20px;
+    animation: backgroundPulse 3s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% { background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #ff6b6b 100%); }
+    50% { background: linear-gradient(135deg, #ffd93d 0%, #ff6b6b 50%, #ffd93d 100%); }
+}
+
+.flash-banner {
+    background: linear-gradient(90deg, #ff0000, #ff6b00, #ffd700, #ff6b00, #ff0000);
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+    animation: scrollBanner 10s linear infinite, flash 0.5s ease-in-out infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes scrollBanner {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+@keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
 }
 
 header {
@@ -16,11 +42,51 @@ header {
     color: white;
     margin-bottom: 30px;
     padding: 20px;
+    background: linear-gradient(135deg, #ff0066, #ff6600);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     margin-bottom: 10px;
+    animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.deal-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.timer {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #fff;
+    background: #ff0000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: inline-block;
+    animation: urgent 0.8s ease-in-out infinite;
+}
+
+@keyframes urgent {
+    0%, 100% { box-shadow: 0 0 10px #ff0000; }
+    50% { box-shadow: 0 0 25px #ff0000; }
 }
 
 .back-btn {
@@ -53,10 +119,58 @@ header h1 {
 .listing-card {
     background: white;
     border-radius: 12px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
+    position: relative;
+    border: 3px solid #ff6b00;
+    animation: cardGlow 2s ease-in-out infinite;
+}
+
+@keyframes cardGlow {
+    0%, 100% { box-shadow: 0 4px 6px rgba(255, 107, 0, 0.5); }
+    50% { box-shadow: 0 8px 20px rgba(255, 107, 0, 0.8); }
+}
+
+.sale-badge {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background: linear-gradient(135deg, #ff0000, #ff6b00);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9em;
+    z-index: 10;
+    animation: wiggle 1s ease-in-out infinite;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.6);
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.limited-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    color: #000;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9em;
+    z-index: 10;
+    animation: blink 1s ease-in-out infinite;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.6);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
 .listing-card:hover {
@@ -81,10 +195,33 @@ header h1 {
 }
 
 .price {
-    color: #667eea;
-    font-size: 1.5em;
+    color: #ff0000;
+    font-size: 1.8em;
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.7em;
+    margin-right: 10px;
+}
+
+.deal-tag {
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    color: #000;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .description {
@@ -173,15 +310,19 @@ header h1 {
 }
 
 .order-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ff0000 0%, #ff6b00 100%);
     color: white;
     border: none;
-    padding: 15px 40px;
-    font-size: 1.1em;
-    border-radius: 8px;
+    padding: 20px 40px;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 50px;
     cursor: pointer;
     transition: transform 0.2s;
     width: 100%;
+    animation: pulse 1.5s ease-in-out infinite;
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.5);
+    text-transform: uppercase;
 }
 
 .order-btn:hover {
@@ -204,6 +345,131 @@ header h1 {
     margin-bottom: 5px;
 }
 
+.floating-banner {
+    position: fixed;
+    background: linear-gradient(90deg, #ff0066, #ff6600);
+    color: white;
+    padding: 15px 30px;
+    font-weight: bold;
+    font-size: 1.1em;
+    z-index: 1000;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    animation: slideIn 1s ease-out;
+}
+
+.banner-1 {
+    top: 100px;
+    right: -400px;
+    animation: slideRight 3s ease-in-out infinite;
+}
+
+.banner-2 {
+    bottom: 150px;
+    left: -400px;
+    animation: slideLeft 4s ease-in-out infinite 1s;
+}
+
+.banner-3 {
+    top: 250px;
+    right: -400px;
+    animation: slideRight 5s ease-in-out infinite 2s;
+}
+
+@keyframes slideRight {
+    0%, 100% { right: -400px; }
+    50% { right: 20px; }
+}
+
+@keyframes slideLeft {
+    0%, 100% { left: -400px; }
+    50% { left: 20px; }
+}
+
+.popup-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.popup-content {
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    border: 5px solid #ff0000;
+    box-shadow: 0 10px 40px rgba(255, 0, 0, 0.7);
+    animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.popup-content h2 {
+    font-size: 2.5em;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.popup-content h3 {
+    font-size: 2em;
+    color: #ff0000;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.popup-timer {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #fff;
+    margin: 20px 0;
+}
+
+.popup-btn {
+    background: linear-gradient(135deg, #00ff00, #00aa00);
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 20px 0;
+    animation: pulse 1.5s ease-in-out infinite;
+    box-shadow: 0 5px 20px rgba(0, 255, 0, 0.5);
+}
+
+.popup-btn:hover {
+    transform: scale(1.1);
+}
+
+.popup-fine-print {
+    font-size: 0.8em;
+    color: #333;
+    margin-top: 10px;
+}
+
 @media (max-width: 768px) {
     .listings-grid {
         grid-template-columns: 1fr;
@@ -215,5 +481,10 @@ header h1 {
     
     .detail-info {
         padding: 20px;
+    }
+    
+    .floating-banner {
+        font-size: 0.9em;
+        padding: 10px 20px;
     }
 }
