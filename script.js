@@ -77,15 +77,18 @@ function startPopupCountdown() {
     }, 1000);
 }
 
-// Show popup after delay (only once)
-let popupShown = false;
+// Show popup after delay (only once overall)
 function showPopup() {
-    if (popupShown) return;
+    // Check if popup has already been shown
+    if (localStorage.getItem('popupShown') === 'true') {
+        return;
+    }
+    
     setTimeout(() => {
         const modal = document.getElementById('popup-modal');
         if (modal) {
             modal.style.display = 'flex';
-            popupShown = true;
+            localStorage.setItem('popupShown', 'true');
             startPopupCountdown();
         }
     }, 3000);

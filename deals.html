@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Deals - FEETPLACE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="flash-banner">🔥 MEGA FLASH SALE! 🔥 UP TO 99% OFF! 🔥 LIMITED TIME! 🔥</div>
+        <h1>⚡ FLASH DEALS ⚡</h1>
+        <p class="deal-text">⏰ Deals expire in: <span id="countdown">02:47:33</span> ⏰</p>
+    </header>
+
+    <main class="container">
+        <div class="listings-grid">
+            <div class="listing-card" onclick="alert('🔥 Deal of the Day!\n\nSupreme Arch Supporter Limited Edition\n\nWas: $8,999.99\nNow: $9.99\n\n98% SAVINGS!')">
+                <div class="sale-badge">🔥 98% OFF! 🔥</div>
+                <img src="https://images.unsplash.com/photo-1595051572626-aecfdafb53f2?w=400&h=300&fit=crop" alt="Deal 1">
+                <div class="listing-info">
+                    <h3>Supreme Arch Supporter Limited</h3>
+                    <p class="price"><span class="old-price">$8,999.99</span> $9.99</p>
+                    <p class="deal-tag">🚀 HURRY! ONLY 3 LEFT! 🚀</p>
+                </div>
+            </div>
+
+            <div class="listing-card" onclick="alert('🔥 Flash Deal!\n\nHidden Valley Heel Treasures\n\nWas: $12,500.00\nNow: $12.50\n\n99.9% SAVINGS!')">
+                <div class="sale-badge">⚡ 99.9% OFF! ⚡</div>
+                <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=400&h=300&fit=crop" alt="Deal 2">
+                <div class="listing-info">
+                    <h3>Hidden Valley Heel Treasures</h3>
+                    <p class="price"><span class="old-price">$12,500.00</span> $12.50</p>
+                    <p class="deal-tag">⚠️ 1 ITEM LEFT! ⚠️</p>
+                </div>
+            </div>
+
+            <div class="listing-card" onclick="alert('🔥 Lightning Deal!\n\nMystic Toe Ring Collection\n\nWas: $5,599.99\nNow: $5.99\n\n99.9% SAVINGS!')">
+                <div class="sale-badge">💥 99.9% OFF! 💥</div>
+                <img src="https://images.unsplash.com/photo-1593490568167-cfbc070061f8?w=400&h=300&fit=crop" alt="Deal 3">
+                <div class="listing-info">
+                    <h3>Mystic Toe Ring Collection</h3>
+                    <p class="price"><span class="old-price">$5,599.99</span> $5.99</p>
+                    <p class="deal-tag">⚡ EXPRESS SHIPPING FREE! ⚡</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div style="text-align: center; margin: 40px; padding: 20px;">
+        <a href="index.html" style="background: #ff6600; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold;">← BACK TO HOME</a>
+    </div>
+
+    <script>
+        function startCountdown() {
+            let hours = 2, minutes = 47, seconds = 33;
+            setInterval(() => {
+                seconds--;
+                if (seconds < 0) { seconds = 59; minutes--; }
+                if (minutes < 0) { minutes = 59; hours--; }
+                if (hours < 0) { hours = 2; minutes = 47; seconds = 33; }
+                
+                const countdownEl = document.getElementById('countdown');
+                if (countdownEl) {
+                    countdownEl.textContent = 
+                        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                }
+            }, 1000);
+        }
+        
+        window.addEventListener('DOMContentLoaded', startCountdown);
+    </script>
+</body>
+</html>

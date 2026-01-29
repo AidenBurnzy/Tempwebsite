@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - FEETPLACE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>❓ FREQUENTLY ASKED QUESTIONS ❓</h1>
+        <p class="deal-text">Find Answers to Your Questions</p>
+    </header>
+
+    <main class="container">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item" style="background: white; padding: 20px; margin: 15px 0; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3 style="color: #ff6600; cursor: pointer;" onclick="toggleAnswer(this)">Q: How are the prices so low?</h3>
+                <p style="display: none; color: #666; line-height: 1.6; margin-top: 10px;">A: We partner directly with manufacturers and cut out middlemen. This allows us to offer 99% discounts while still making a profit. It's called volume, baby!</p>
+            </div>
+
+            <div class="faq-item" style="background: white; padding: 20px; margin: 15px 0; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3 style="color: #ff6600; cursor: pointer;" onclick="toggleAnswer(this)">Q: Is shipping really free?</h3>
+                <p style="display: none; color: #666; line-height: 1.6; margin-top: 10px;">A: On orders over $10, yes! Standard shipping is free and arrives in 5-7 business days. Express 2-day shipping is only $2.99!</p>
+            </div>
+
+            <div class="faq-item" style="background: white; padding: 20px; margin: 15px 0; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3 style="color: #ff6600; cursor: pointer;" onclick="toggleAnswer(this)">Q: What about returns?</h3>
+                <p style="display: none; color: #666; line-height: 1.6; margin-top: 10px;">A: Full 30-day returns! If you're not 100% satisfied, send it back for a full refund. No questions asked. That's the FEETPLACE guarantee!</p>
+            </div>
+
+            <div class="faq-item" style="background: white; padding: 20px; margin: 15px 0; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3 style="color: #ff6600; cursor: pointer;" onclick="toggleAnswer(this)">Q: Are these products authentic?</h3>
+                <p style="display: none; color: #666; line-height: 1.6; margin-top: 10px;">A: 100% authentic and genuine. We guarantee all products are real. If we ever sell anything fake, we'll refund you 10x the purchase price!</p>
+            </div>
+
+            <div class="faq-item" style="background: white; padding: 20px; margin: 15px 0; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3 style="color: #ff6600; cursor: pointer;" onclick="toggleAnswer(this)">Q: How fast do you ship?</h3>
+                <p style="display: none; color: #666; line-height: 1.6; margin-top: 10px;">A: Standard 5-7 days, Express 2-day, or Overnight shipping. Most orders ship within 24 hours of purchase!</p>
+            </div>
+
+            <div class="faq-item" style="background: white; padding: 20px; margin: 15px 0; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3 style="color: #ff6600; cursor: pointer;" onclick="toggleAnswer(this)">Q: Can I track my order?</h3>
+                <p style="display: none; color: #666; line-height: 1.6; margin-top: 10px;">A: Yes! You'll get a tracking number via email and can track it real-time on our website or the carrier's site.</p>
+            </div>
+
+            <div class="faq-item" style="background: white; padding: 20px; margin: 15px 0; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3 style="color: #ff6600; cursor: pointer;" onclick="toggleAnswer(this)">Q: Do you ship internationally?</h3>
+                <p style="display: none; color: #666; line-height: 1.6; margin-top: 10px;">A: We ship to 200+ countries! International shipping starts at $5.99. Check our shipping calculator for your location.</p>
+            </div>
+        </div>
+    </main>
+
+    <div style="text-align: center; margin: 40px; padding: 20px;">
+        <a href="index.html" style="background: #ff6600; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold;">← BACK TO HOME</a>
+    </div>
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            if (answer.style.display === 'none') {
+                answer.style.display = 'block';
+                element.style.color = '#ff0000';
+            } else {
+                answer.style.display = 'none';
+                element.style.color = '#ff6600';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - FEETPLACE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🛒 SHOPPING CART 🛒</h1>
+        <p class="deal-text">Your Items Are Reserved For 15 Minutes!</p>
+    </header>
+
+    <main class="container">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h2>Your Cart Items</h2>
+                
+                <div style="border: 2px solid #ff6600; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h4>Supreme Beach Walker™ Edition</h4>
+                            <p style="color: #999;">Qty: 1</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-size: 1.5em; color: #ff6600; font-weight: bold;">$29.99</p>
+                            <button onclick="alert('Item removed from cart')" style="background: #ff0000; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="border: 2px solid #ff6600; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h4>Turbo Toenail Thunder™ Max</h4>
+                            <p style="color: #999;">Qty: 2</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-size: 1.5em; color: #ff6600; font-weight: bold;">$71.98</p>
+                            <button onclick="alert('Item removed from cart')" style="background: #ff0000; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="margin: 20px 0;">
+
+                <div style="background: linear-gradient(135deg, #ff6b6b, #ffd93d); padding: 20px; border-radius: 10px; color: white;">
+                    <div style="display: flex; justify-content: space-between; font-size: 1.2em; margin: 10px 0;">
+                        <span>Subtotal:</span>
+                        <span>$101.97</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 1.2em; margin: 10px 0;">
+                        <span>Shipping:</span>
+                        <span style="color: #00ff00;">FREE!</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 1.2em; margin: 10px 0;">
+                        <span>Tax:</span>
+                        <span>$8.16</span>
+                    </div>
+                    <hr style="border: 1px solid white;">
+                    <div style="display: flex; justify-content: space-between; font-size: 1.5em; font-weight: bold;">
+                        <span>TOTAL:</span>
+                        <span>$110.13</span>
+                    </div>
+                </div>
+
+                <button onclick="checkout()" style="background: linear-gradient(135deg, #00ff00, #00aa00); color: white; border: none; padding: 20px; border-radius: 8px; font-size: 1.3em; font-weight: bold; width: 100%; margin-top: 20px; cursor: pointer; animation: pulse 1.5s ease-in-out infinite;">CHECKOUT 🛍️</button>
+
+                <button onclick="continueShopping()" style="background: transparent; color: #ff6600; border: 2px solid #ff6600; padding: 15px; border-radius: 8px; font-size: 1.1em; font-weight: bold; width: 100%; margin-top: 10px; cursor: pointer;">← CONTINUE SHOPPING</button>
+
+                <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 20px; border-left: 5px solid #ffc107;">
+                    <p>⚠️ <strong>HURRY!</strong> Your items are reserved for <span id="timer">15:00</span> minutes. After that, they go back to sale!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function checkout() {
+            alert('🎉 Order Confirmed!\n\nYou saved $568.03 today!\n\nOrder #FEET-2024-847392\n\nThank you for shopping at FEETPLACE!');
+        }
+
+        function continueShopping() {
+            window.location.href = 'index.html';
+        }
+
+        function startTimer() {
+            let minutes = 15, seconds = 0;
+            setInterval(() => {
+                seconds--;
+                if (seconds < 0) { seconds = 59; minutes--; }
+                if (minutes < 0) { minutes = 15; seconds = 0; }
+                
+                const timerEl = document.getElementById('timer');
+                if (timerEl) {
+                    timerEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                }
+            }, 1000);
+        }
+
+        window.addEventListener('DOMContentLoaded', startTimer);
+    </script>
+</body>
+</html>
