@@ -1,42 +1,42 @@
 // Listing data
 const listings = {
     1: {
-        title: "Premium Used Feet",
+        title: "Supreme Beach Walker™ Edition",
         price: "$29.99",
         oldPrice: "$5,999.99",
         description: "Female, well cared for. This item has been carefully maintained and is ready for a new home. Perfect for everyday use and built to last.",
         image: "https://images.unsplash.com/photo-1658354562106-695ea97df8a1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGlydHklMjBmZWV0fGVufDB8fDB8fHww"
     },
     2: {
-        title: "Deluxe Feet",
+        title: "UltraFresh Virgin Toes™ Pro",
         price: "$45.00",
         oldPrice: "$45,000.00",
         description: "Brand new, never walked on. Still in original packaging. This is a fantastic opportunity to get a premium product at a great price.",
         image: "https://images.unsplash.com/photo-1595051572626-aecfdafb53f2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmVldHxlbnwwfHwwfHx8MA%3D%3D"
     },
     3: {
-        title: "Special Feet",
+        title: "Mystic Sole Collector's Dream",
         price: "$19.99",
         oldPrice: "$6,666.66",
         description: "Great deal, limited time offer. Don't miss out on this amazing bargain. Item is in good condition and fully functional.",
         image: "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZlZXR8ZW58MHx8MHx8fDA%3D"
     },
     4: {
-        title: "Exclusive Item #4",
+        title: "Platinum Heel Dynasty™ VIP",
         price: "$75.50",
         oldPrice: "$94,375.00",
         description: "Premium quality, highly sought after. This rare item is hard to find and in pristine condition. A must-have for collectors.",
         image: "https://plus.unsplash.com/premium_photo-1670444332413-62286ffc3bbd?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGZlZXR8ZW58MHx8MHx8fDA%3D"
     },
     5: {
-        title: "Luxury Item #5",
+        title: "Royal Arch Support Majesty™",
         price: "$120.00",
         oldPrice: "$600,000.00",
         description: "Top of the line, perfect condition. This luxury item offers unmatched quality and style. Investment-grade product.",
         image: "https://images.unsplash.com/photo-1638859460750-181fcc7936a6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZlZXR8ZW58MHx8MHx8fDA%3D"
     },
     6: {
-        title: "Essential Item #6",
+        title: "Turbo Toenail Thunder™ Max",
         price: "$35.99",
         oldPrice: "$59,983.00",
         description: "Must-have item, great value. Versatile and practical, this item will quickly become one of your favorites.",
