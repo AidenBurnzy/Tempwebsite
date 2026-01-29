@@ -77,10 +77,25 @@ function startPopupCountdown() {
     }, 1000);
 }
 
-// Show popup after delay (only once overall)
+// Show popup after delay (only once ever - GUARANTEED)
 function showPopup() {
-    // Check if popup has already been shown
-    if (localStorage.getItem('popupShown') === 'true') {
+    // Only show on index.html (home page)
+    const currentPage = window.location.pathname;
+    const isHomePage = currentPage.endsWith('index.html') || currentPage.endsWith('/') || currentPage === '/';
+    
+    if (!isHomePage) {
+        console.log('Not on home page, skipping popup');
+        return;
+    }
+    
+    // Triple check - check all possible storage locations
+    const hasShownBefore = 
+        sessionStorage.getItem('popupShownEver') === 'true' || 
+        localStorage.getItem('popupShownEver') === 'true' ||
+        window.popupAlreadyShown === true;
+    
+    if (hasShownBefore) {
+        console.log('Popup already shown, skipping');
         return;
     }
     
@@ -88,8 +103,12 @@ function showPopup() {
         const modal = document.getElementById('popup-modal');
         if (modal) {
             modal.style.display = 'flex';
-            localStorage.setItem('popupShown', 'true');
+            // Mark as shown in ALL possible ways
+            window.popupAlreadyShown = true;
+            sessionStorage.setItem('popupShownEver', 'true');
+            localStorage.setItem('popupShownEver', 'true');
             startPopupCountdown();
+            console.log('Popup shown and marked as shown');
         }
     }, 3000);
 }
@@ -128,17 +147,18 @@ function showNotification() {
 function startNotifications() {
     setInterval(() => {
         showNotification();
-    }, Math.random() * 5000 + 3000); // Random between 3-8 seconds
+    }, Math.random() * 10000 + 8000); // Random between 8-18 seconds (slower)
 }
 
 // Show spinning wheel popup
 function showSpinWheel() {
     setTimeout(() => {
         const spinPopup = document.getElementById('spin-wheel-popup');
-        if (spinPopup) {
+        if (spinPopup && !localStorage.getItem('spinWheelShown')) {
             spinPopup.style.display = 'flex';
+            localStorage.setItem('spinWheelShown', 'true');
         }
-    }, 10000); // Show after 10 seconds
+    }, 25000); // Show after 25 seconds (was 10)
 }
 
 // Close spinning wheel
@@ -176,7 +196,7 @@ function decreaseStock() {
                 count = 47; // Reset
                 stockCount.textContent = count;
             }
-        }, 8000);
+        }, 15000); // Every 15 seconds (was 8)
     }
 }
 
@@ -185,6 +205,10 @@ function closePopup() {
     const modal = document.getElementById('popup-modal');
     if (modal) {
         modal.style.display = 'none';
+        // Ensure it's marked as shown even when closed
+        window.popupAlreadyShown = true;
+        sessionStorage.setItem('popupShownEver', 'true');
+        localStorage.setItem('popupShownEver', 'true');
     }
 }
 

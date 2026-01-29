@@ -63,6 +63,10 @@ body {
     min-height: 100vh;
     padding: 20px;
     animation: backgroundPulse 3s ease-in-out infinite;
+    /* Mobile optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 @keyframes backgroundPulse {
@@ -414,19 +418,19 @@ header h1 {
 .banner-1 {
     top: 100px;
     right: -400px;
-    animation: slideRight 3s ease-in-out infinite;
+    animation: slideRight 8s ease-in-out infinite;
 }
 
 .banner-2 {
     bottom: 150px;
     left: -400px;
-    animation: slideLeft 4s ease-in-out infinite 1s;
+    animation: slideLeft 10s ease-in-out infinite 2s;
 }
 
 .banner-3 {
     top: 250px;
     right: -400px;
-    animation: slideRight 5s ease-in-out infinite 2s;
+    animation: slideRight 12s ease-in-out infinite 4s;
 }
 
 @keyframes slideRight {
@@ -687,7 +691,7 @@ header h1 {
     font-weight: bold;
     border-radius: 10px 0 0 10px;
     box-shadow: 0 4px 20px rgba(255, 0, 0, 0.6);
-    animation: slideStock 5s ease-in-out infinite;
+    animation: slideStock 12s ease-in-out infinite;
     z-index: 1500;
 }
 
@@ -703,10 +707,77 @@ header h1 {
 }
 
 @media (max-width: 768px) {
-    .listings-grid {
-        grid-template-columns: 1fr;
+    /* Mobile Navigation */
+    .navbar {
+        padding: 10px 0;
     }
     
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav-menu {
+        justify-content: center;
+        font-size: 0.85em;
+    }
+    
+    .nav-menu a {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+    
+    /* Mobile Header */
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .deal-text {
+        font-size: 1em;
+    }
+    
+    .timer {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+    
+    .flash-banner {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+    
+    /* Mobile Listings Grid */
+    .listings-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 20px;
+    }
+    
+    .listing-card {
+        margin: 10px 0;
+    }
+    
+    .listing-card img {
+        height: 200px;
+    }
+    
+    .listing-info {
+        padding: 15px;
+    }
+    
+    .listing-info h3 {
+        font-size: 1.2em;
+    }
+    
+    .price {
+        font-size: 1.5em;
+    }
+    
+    .old-price {
+        font-size: 0.8em;
+    }
+    
+    /* Mobile Listing Detail */
     .listing-detail {
         grid-template-columns: 1fr;
     }
@@ -715,8 +786,166 @@ header h1 {
         padding: 20px;
     }
     
+    .detail-info h2 {
+        font-size: 1.5em;
+    }
+    
+    /* Mobile Floating Banners - Make them smaller and less intrusive */
     .floating-banner {
+        font-size: 0.8em;
+        padding: 10px 15px;
+        max-width: 250px;
+    }
+    
+    .banner-1, .banner-3 {
+        right: -250px;
+    }
+    
+    .banner-2 {
+        left: -250px;
+    }
+    
+    @keyframes slideRight {
+        0%, 100% { right: -250px; }
+        50% { right: 10px; }
+    }
+    
+    @keyframes slideLeft {
+        0%, 100% { left: -250px; }
+        50% { left: 10px; }
+    }
+    
+    /* Mobile Stock Alert */
+    .stock-alert {
         font-size: 0.9em;
-        padding: 10px 20px;
+        padding: 12px 15px;
+        right: -300px;
+    }
+    
+    @keyframes slideStock {
+        0%, 100% { right: -300px; }
+        20%, 80% { right: 0; }
+    }
+    
+    /* Mobile Notifications */
+    #notification-container {
+        max-width: 280px;
+        bottom: 10px;
+        left: 10px;
+        font-size: 0.9em;
+    }
+    
+    .notification {
+        padding: 10px 15px;
+    }
+    
+    /* Mobile Popup Modal */
+    .popup-modal {
+        padding: 20px;
+    }
+    
+    .popup-content {
+        padding: 25px;
+        max-width: 90%;
+        width: 90%;
+    }
+    
+    .popup-content h2 {
+        font-size: 1.8em;
+    }
+    
+    .popup-content h3 {
+        font-size: 1.5em;
+    }
+    
+    .popup-timer {
+        font-size: 1.1em;
+    }
+    
+    .popup-btn {
+        padding: 15px 30px;
+        font-size: 1.2em;
+        width: 100%;
+    }
+    
+    /* Mobile Spinning Wheel */
+    .spin-popup {
+        padding: 20px;
+    }
+    
+    .spin-content {
+        padding: 25px;
+        max-width: 90%;
+        width: 90%;
+    }
+    
+    .spin-content h2 {
+        font-size: 1.8em;
+    }
+    
+    .wheel {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .wheel-inner {
+        width: 60px;
+        height: 60px;
+        font-size: 2em;
+    }
+    
+    .spin-text {
+        font-size: 1.1em;
+    }
+    
+    .spin-btn {
+        padding: 15px 30px;
+        font-size: 1.2em;
+        width: 100%;
+    }
+    
+    .close-spin {
+        padding: 10px 25px;
+        font-size: 0.9em;
+        width: 100%;
+    }
+    
+    /* Mobile Buttons */
+    .order-btn {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
+    
+    .unlock-btn {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+    
+    /* Mobile Container */
+    .container {
+        padding: 10px;
+    }
+    
+    /* Mobile Sale Badges */
+    .sale-badge, .limited-badge {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+    
+    /* Mobile Deal Tags */
+    .deal-tag {
+        font-size: 0.85em;
+        padding: 6px;
+    }
+    
+    /* Slow down animations on mobile for better performance */
+    * {
+        animation-duration: 1.5s !important;
+    }
+    
+    /* Touch-friendly spacing */
+    button, a {
+        min-height: 44px;
+        min-width: 44px;
     }
 }
